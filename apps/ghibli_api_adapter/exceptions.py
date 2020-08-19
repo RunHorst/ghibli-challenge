@@ -1,0 +1,2 @@
+class GhibliAPIException(Exception):
+    pass
