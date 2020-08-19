@@ -25,5 +25,6 @@ def movies_overview(request):
 def catch_404(request, exception):
     return render(
         request,
-        'errors/404.html'
+        'errors/404.html',
+        status=404
     )

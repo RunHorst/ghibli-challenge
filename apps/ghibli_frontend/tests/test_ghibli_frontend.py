@@ -44,7 +44,7 @@ def test_movie_list_page(
 
 
 def test_404(client):
-    url = f'{reverse("movies-overview")}/help-i-am-lost/'
+    url = f'{reverse("movies-overview")}help-i-am-lost/'
     resp = client.get(url, status='*')
 
     assert resp.status_code == 404
