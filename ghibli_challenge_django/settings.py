@@ -36,8 +36,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'ghibli_frontend',
-    'ghibli_api_adapter',
+    'apps.ghibli_frontend',
+    'apps.ghibli_api_adapter',
 ]
 
 MIDDLEWARE = [

@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 
-from ghibli_api_adapter.lib import retrieve_movie_list
+from apps.ghibli_api_adapter.lib import retrieve_movie_list
 
 
 def movies_overview(request):
