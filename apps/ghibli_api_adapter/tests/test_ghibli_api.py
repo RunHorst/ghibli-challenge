@@ -1,3 +1,4 @@
+from django.core.cache import cache
 import pytest
 
 from apps.ghibli_api_adapter.const import (
@@ -9,6 +10,9 @@ from apps.ghibli_api_adapter.lib import (
     _fetch_movies,
     retrieve_movie_list
 )
+
+pytestmark = pytest.mark.django_db
+
 
 """
 Unit(ish) tests
@@ -22,12 +26,18 @@ def test_fetching_the_movie_list(
     """
     Normal functionality when everything's fine
     """
+
     movies = retrieve_movie_list()
     assert len(movies) == len(ghibli_api_healthy_movies_response)
 
     """
     Ghibli API is down
     """
+
+    # Remove any cached entries (to make sure the code actually
+    # tries to get data from the mocked "Ghibli API")
+    cache.clear()
+
     for endpoint in [GHIBLI_API_MOVIE_URL, GHIBLI_API_PEOPLE_URL]:
         with pytest.raises(GhibliAPIException):
             requests_mock.get(endpoint, status_code=500)

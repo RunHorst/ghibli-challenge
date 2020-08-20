@@ -1,9 +1,14 @@
+from django.core.cache import cache
 from django.urls import reverse
+import pytest
 
 from apps.ghibli_api_adapter.const import (
     GHIBLI_API_MOVIE_URL,
     GHIBLI_API_PEOPLE_URL
 )
+
+pytestmark = pytest.mark.django_db
+
 
 """
 Mostly functional/integration tests
@@ -29,6 +34,10 @@ def test_movie_list_page(
     """
     Tests assuming the Ghibli API doesn't work
     """
+
+    # Remove any cached entries (to make sure the code actually
+    # tries to get data from the mocked "Ghibli API")
+    cache.clear()
 
     for endpoint in [GHIBLI_API_MOVIE_URL, GHIBLI_API_PEOPLE_URL]:
         requests_mock.get(
