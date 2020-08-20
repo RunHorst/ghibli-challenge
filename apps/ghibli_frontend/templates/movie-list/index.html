@@ -1,10 +1,18 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <h3>Ghibli MOVIES:</h3>
-  <ul>
-    {% for movie in movies %}
-      <li>{{movie}}</li>
-    {% endfor %}
-  </ul>
+  <h2>Ghibli MOVIES:</h3>
+  {% for movie in movies %}
+    <hr>
+    <h3>{{movie.title}}</h3>
+    <h4>Characters:</h4>
+    <ul>
+      {% for character in movie.characters %}
+        <li>{{character.name}}</li>
+      {% empty %}
+        <em>Apologies, we couldn't find any notable character for <strong>{{movie.title}}</strong>. Why not watch it to find out yourself?</em>
+      {% endfor %}
+    </ul>
+  {% endfor %}
+  <hr>
 {% endblock content %}
