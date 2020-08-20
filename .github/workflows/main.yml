@@ -1,0 +1,29 @@
+# This is my first attempt at writing a GitHub CI YAML file. Let's see how it goes.
+
+name: CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  test:
+    # This is the one suggested by GitHub - should be fine
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+    # GitHub says: "Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it"
+    - uses: actions/checkout@v2
+
+    - name: Install requirements
+      run: |
+        cd $(GITHUB_WORKSPACE)
+        make install-tests
+
+    - name: Run a multi-line script
+      run: |
+        cd $(GITHUB_WORKSPACE)
+        make tests
