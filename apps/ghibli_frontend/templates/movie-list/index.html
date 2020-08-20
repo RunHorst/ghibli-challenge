@@ -1,7 +1,15 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <h2>Ghibli MOVIES:</h3>
+  <h2>Ghibli Movies</h3>
+  <div>
+    <p>
+      Welcome to the official unoffical Ghibli movie database.
+    </p>
+    <p>
+      On this page, you can see a list of movies published by <a href="https://en.wikipedia.org/wiki/Studio_Ghibli", target="_blank">Studio Ghibli</a> and <span style="color: grey;"><del>every single</del></span> some of the characters which appear in them.
+    </p>
+  </div>
   {% for movie in movies %}
     <hr>
     <h3>{{movie.title}}</h3>
