@@ -9,7 +9,7 @@ run-gunicorn: install
 	GUNICORN_CMD_ARGS="--workers=1 --threads=1" gunicorn ghibli_challenge_django.wsgi
 tests: install-tests
 	DJANGO_SETTINGS_MODULE=$(DJANGO_TEST_SETTINGS) pytest --cov=apps --cov-report term-missing apps
-	pep8 --exclude venv .
+	pycodestyle --exclude venv .
 install:
 	pip install -r requirements/common.txt
 install-tests:

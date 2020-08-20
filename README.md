@@ -18,7 +18,7 @@ $ make install
 
 ### Running tests
 
-Automated tests (including a test coverage report) are available via the Makefile:
+Automated tests (including a test coverage report and PEP8 compliance check) are available via the Makefile:
 ```bash
 $ make tests
 ```
