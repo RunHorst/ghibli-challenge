@@ -64,6 +64,7 @@ def retrieve_movie_list():
 
     # We could strip out most of the movie/character
     # fields at this point (age, gender etc.), but let's leave them in
-    # and leave the (theoretical) template designers as much freedom as they want
+    # and leave the (theoretical) template designers
+    # as much freedom as they want
 
     return movies.values()
