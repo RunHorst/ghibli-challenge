@@ -14,5 +14,5 @@ SECRET_KEY = os.environ.get(
     'DJANGO_SECRET_KEY',
     # We don't have any persistent data anyway, so we can just
     # create a secret key at runtime if needed
-    secrets.random_hex(32)
+    secrets.token_hex(32)
 )
