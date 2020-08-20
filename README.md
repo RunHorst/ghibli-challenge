@@ -57,3 +57,4 @@ These are things that should and would have been handled differently outside of 
 * **Proper version control** - this project was developed exclusively on the `master` branch. In a project involving more complex features and more developers, feature branches should of course have been used
 * **Async cache renewal** - depending on the expected traffic and the server resources available, it would be nice to have periodic async tasks (utilizing e.g. Celery) running in the background to automatically refresh the cached data from the Ghibli API, rather than refreshing the cashe on-demand as it is currently the case
 * **CI** - it would be nice to have the tests (and the deployment of the live instance) be run automatically on pushing new commits
+* **Better documentation** - ... obviously
