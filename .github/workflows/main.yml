@@ -10,20 +10,27 @@ on:
 
 jobs:
   test:
-    # This is the one suggested by GitHub - should be fine
     runs-on: ubuntu-latest
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     # GitHub says: "Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it"
     - uses: actions/checkout@v2
+    
+    - name: Install Python
+      uses: actions/setup-python@v2
+      with:
+        # Semantic version range syntax or exact version of a Python version
+        python-version: '3.x'
 
     - name: Install requirements
       run: |
         cd ${GITHUB_WORKSPACE}
+        python -m venv venv
+        . venv/bin/activate
         make install-tests
 
     - name: Run a multi-line script
       run: |
         cd ${GITHUB_WORKSPACE}
+        . venv/bin/activate
         make tests
