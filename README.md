@@ -3,7 +3,7 @@ This Django micro-project was built to answer the coding challenge encountered d
 
 
 ### Installation
-This project comes with a `Makefile`. It is recommended to use a Python virtual environment:
+This project comes with a `Makefile`. It is recommended to use a Python virtual environment (using Python 3.x):
 ```bash
 $ python -m venv venv
 [...]
